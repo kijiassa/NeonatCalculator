@@ -1,35 +1,45 @@
-WindowManager:
-    FirstWindow:
-    FentanilWindow:
-
-
 <FirstWindow>:
-    name: "main"
+    name: "first"
 
-    GridLayout:
-        cols:1
+    FloatLayout:
 
-        GridLayout:
-            cols: 2
-
-            Label:
-                text: "Password: "
-
-            TextInput:
-                id: passw   #именно passw, а не pass
-                multiline: False
-
-        Button:
-            text: "Submit"
+        Button: #Кнопка Фентанил
+            pos_hint: {"x":0.02, "top": 0.98}
+            size_hint: 0.7, 0.2
+            text: "Фентанил"
+            font_size: 14
             on_release:
-                app.root.current = "fentanil" if passw.text == "next" else "main"   # именно passw, а не pass
+                app.root.current = "fentanil"
+                root.manager.transition.direction = "left"
+
+        Button: #Кнопка Фентанил
+            pos_hint: {"x":0.02, "top": 0.76}
+            size_hint: 0.7, 0.2
+            text: "О программе"
+            font_size: 14
+            on_release:
+                app.root.current = "about"
                 root.manager.transition.direction = "left"
 
 <FentanilWindow>:
     name: "fentanil"
+    FloatLayout:
+        Button:
+            text: "Go Back"
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
 
-    Button:
-        text: "Go Back"
-        on_release:
-            app.root.current = "main"
-            root.manager.transition.direction = "right"
+<AboutWindow>:
+    name: "about"
+    FloatLayout:
+        Label:
+            font_size: 12
+            text: "Программа для расчёта лекарств. Версия на kivy. Мухин А.С. 22.11.2022"
+        Button:
+            pos_hint: {"x":0.02, "y": 0.02}
+            size_hint: 0.7, 0.2
+            text: "Обратно"
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
