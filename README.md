@@ -1,2 +1,2 @@
-# NeonatCalculator
-Calculator for doctor
+# NeoCalc
+Calculator for doctor (neonatology)
