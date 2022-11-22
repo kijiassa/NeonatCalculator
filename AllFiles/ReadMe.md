@@ -1,1 +1,1 @@
-This try to make calculator for doctor
+This try to make calculator for doctor.
