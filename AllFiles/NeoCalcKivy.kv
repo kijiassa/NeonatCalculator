@@ -1,0 +1,35 @@
+WindowManager:
+    FirstWindow:
+    FentanilWindow:
+
+
+<FirstWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Password: "
+
+            TextInput:
+                id: passw   #именно passw, а не pass
+                multiline: False
+
+        Button:
+            text: "Submit"
+            on_release:
+                app.root.current = "fentanil" if passw.text == "next" else "main"   # именно passw, а не pass
+                root.manager.transition.direction = "left"
+
+<FentanilWindow>:
+    name: "fentanil"
+
+    Button:
+        text: "Go Back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
