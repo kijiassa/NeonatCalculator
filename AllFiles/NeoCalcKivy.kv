@@ -22,23 +22,34 @@
                 root.manager.transition.direction = "left"
 
 <FentanilWindow>:
+    masBabe: mBabe
+    dosFent: dosF
+    numAmp: nAmp
     name: "fentanil"
-    FloatLayout:
+    GridLayout:
         cols: 1
-        FloatLayout:
-            size: root.width, root.height/2
+        GridLayout:
+            cols: 2
             Label:
                 text: "Введите массу \nв граммах"
             TextInput:
+                id: mBabe
                 multiline: False
             Label:
                 text: "Введите дозировку \nна 1мл/ч в мкг/кг*ч"
             TextInput:
+                id: dosF
                 multiline: False
             Label:
                 text: "Выберите, сколько \nсколько возьмёте ампул"
             TextInput:
+                id: nAmp
                 multiline: False
+        Button:
+            text: "Рассчитать"
+            on_press: root.change()
+        Label:
+            text: "Итог расчёта"
         Button:
             text: "Go Back"
             on_release:

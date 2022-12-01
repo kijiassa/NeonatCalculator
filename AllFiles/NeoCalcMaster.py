@@ -14,7 +14,19 @@ class FirstWindow(Screen):
     def aboutBtn(self):
         sm.current = "about"
 class FentanilWindow(Screen):
-    def back(self):
+    masBabe = ObjectProperty(None)
+    dosFent = ObjectProperty(None)
+    numAmp = ObjectProperty(None)
+    raschet = ObjectProperty(None)
+    def change(self):
+        m = int(self.masBabe.text)
+        sp_fent = int(self.dosFent.text)
+        n_fent = int(self.numAmp.text)
+        v_fent = 2 * (n_fent)
+        v_NaCl = round((round((n_fent * 100 / (m / 1000)) / sp_fent, 1)) - v_fent, 1)
+        qq = 'Sol.Phentanyli 50mkg/ml - {}mkg ({}ml) \n Sol.Natrii Chloridi 0.9% - {}ml \n Скорость инфузии: 1мл/ч - {}мкг/кг*час'.format((100 * n_fent), (v_fent), (v_NaCl), (sp_fent))
+        self.raschet = qq
+        print(self.raschet)
         sm.current = "first"
 class AboutWindow(Screen):
     def back(self):
